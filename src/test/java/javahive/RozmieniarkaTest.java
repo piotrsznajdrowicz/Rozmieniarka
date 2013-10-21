@@ -1,6 +1,7 @@
 package javahive;
 
 import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class RozmieniarkaTest {
@@ -12,9 +13,8 @@ public class RozmieniarkaTest {
 		//when
 		Nominaly nominaly=rozmieniarka.rozmien(124, NOMINALY_PL);
 		//then
-		Assert.assertTrue(nominaly.getIlosc(100)==1);
-		Assert.assertTrue(nominaly.getIlosc(20)==1);
-		Assert.assertTrue(nominaly.getIlosc(2)==2);
-		
+		assertTrue(nominaly.getIlosc(100)==1);
+		assertTrue(nominaly.getIlosc(20)==1);
+		assertTrue(nominaly.getIlosc(2)==2);
 	}
 }
