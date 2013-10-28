@@ -2,7 +2,7 @@ package javahive;
 
 public class RozmieniarkaPSImpl implements Rozmieniarka {
 	
-	Double[] wynik = new Double[100];
+	Double wynik;
 	Nominaly pieniadze = new Nominaly();
 	
 
@@ -10,16 +10,16 @@ public class RozmieniarkaPSImpl implements Rozmieniarka {
 		
 		for(int i=0;i<dostepneNominaly.length;i++)
 		{
-			wynik[i] = kwota % dostepneNominaly[i];
+			wynik = kwota % dostepneNominaly[i];
 			
-			if(wynik[i] != 0)
+			if(wynik != 0)
 			{
 				continue;
 			}
 			else
 			{
-				kwota = kwota-(dostepneNominaly[i]*wynik[i]);
-				Integer count = wynik[i].intValue();
+				kwota = kwota-(dostepneNominaly[i]*wynik);
+				Integer count = wynik.intValue();
 				
 				pieniadze.setIlosc(dostepneNominaly[i], count);
 				
