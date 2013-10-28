@@ -21,13 +21,13 @@ public class RozmieniarkaPSImpl implements Rozmieniarka {
 				kwota = kwota-(dostepneNominaly[i]*wynik[i]);
 				Integer count = wynik[i].intValue();
 				
-				return pieniadze;
+				pieniadze.setIlosc(dostepneNominaly[i], count);
 				
 			}
 		}
 		
 		
-		return null;
+		return pieniadze;
 	}
 
 }
