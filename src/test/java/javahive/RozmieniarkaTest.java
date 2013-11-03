@@ -146,4 +146,34 @@ public class RozmieniarkaTest {
 		assertTrue(nominaly.getIlosc(0.10) == 1);
 		assertTrue(nominaly.getIlosc(0.01) == 1);
 	}
+	@Test
+	public void PowinienPoprawnieRozmieniac9999_99() {
+		// given
+		Rozmieniarka rozmieniarka = new RozmieniarkaRCImpl();
+		// when
+		Nominaly nominaly = rozmieniarka.rozmien(9999.99, NOMINALY_PL);
+		// then
+		assertTrue(nominaly.getIlosc(200) == 49);
+		assertTrue(nominaly.getIlosc(100) == 1);
+		assertTrue(nominaly.getIlosc(50) == 1);
+		assertTrue(nominaly.getIlosc(20) == 2);
+		assertTrue(nominaly.getIlosc(5) == 1);
+		assertTrue(nominaly.getIlosc(2) == 2);
+		assertTrue(nominaly.getIlosc(0.50) == 1);
+		assertTrue(nominaly.getIlosc(0.20) == 2);
+		assertTrue(nominaly.getIlosc(0.05) == 1);
+		assertTrue(nominaly.getIlosc(0.02) == 2);
+	}
+	@Test
+	public void PowinienPoprawnieRozmieniac0_99() {
+		// given
+		Rozmieniarka rozmieniarka = new RozmieniarkaRCImpl();
+		// when
+		Nominaly nominaly = rozmieniarka.rozmien(0.99, NOMINALY_PL);
+		// then
+		assertTrue(nominaly.getIlosc(0.50) == 1);
+		assertTrue(nominaly.getIlosc(0.20) == 2);
+		assertTrue(nominaly.getIlosc(0.05) == 1);
+		assertTrue(nominaly.getIlosc(0.02) == 2);
+	}
 }
