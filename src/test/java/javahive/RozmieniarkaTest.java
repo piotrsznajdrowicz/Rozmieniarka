@@ -85,4 +85,65 @@ public class RozmieniarkaTest {
 		// then
 		fail();
 	}
+	@Test
+	public void PowinienPoprawnieRozmieniac1111_11() {
+		// given
+		Rozmieniarka rozmieniarka = new RozmieniarkaRCImpl();
+		// when
+		Nominaly nominaly = rozmieniarka.rozmien(1111.11, NOMINALY_PL);
+		// then
+		assertTrue(nominaly.getIlosc(200) == 5);
+		assertTrue(nominaly.getIlosc(100) == 1);
+		assertTrue(nominaly.getIlosc(10) == 1);
+		assertTrue(nominaly.getIlosc(1) == 1);
+		assertTrue(nominaly.getIlosc(0.10) == 1);
+		assertTrue(nominaly.getIlosc(0.01) == 1);
+	}
+	@Test
+	public void PowinienPoprawnieRozmieniac0_01() {
+		// given
+		Rozmieniarka rozmieniarka = new RozmieniarkaRCImpl();
+		// when
+		Nominaly nominaly = rozmieniarka.rozmien(0.01, NOMINALY_PL);
+		// then
+		assertTrue(nominaly.getIlosc(0.01) == 1);
+	}
+	@Test
+	public void PowinienPoprawnieRozmieniac1_11() {
+		// given
+		Rozmieniarka rozmieniarka = new RozmieniarkaRCImpl();
+		// when
+		Nominaly nominaly = rozmieniarka.rozmien(1.11, NOMINALY_PL);
+		// then
+		assertTrue(nominaly.getIlosc(1) == 1);
+		assertTrue(nominaly.getIlosc(0.10) == 1);
+		assertTrue(nominaly.getIlosc(0.01) == 1);
+	}
+	@Test
+	public void PowinienPoprawnieRozmieniac111_11() {
+		// given
+		Rozmieniarka rozmieniarka = new RozmieniarkaRCImpl();
+		// when
+		Nominaly nominaly = rozmieniarka.rozmien(111.11, NOMINALY_PL);
+		// then
+		assertTrue(nominaly.getIlosc(100) == 1);
+		assertTrue(nominaly.getIlosc(10) == 1);
+		assertTrue(nominaly.getIlosc(1) == 1);
+		assertTrue(nominaly.getIlosc(0.10) == 1);
+		assertTrue(nominaly.getIlosc(0.01) == 1);
+	}
+	@Test
+	public void PowinienPoprawnieRozmieniac11111_11() {
+		// given
+		Rozmieniarka rozmieniarka = new RozmieniarkaRCImpl();
+		// when
+		Nominaly nominaly = rozmieniarka.rozmien(11111.11, NOMINALY_PL);
+		// then
+		assertTrue(nominaly.getIlosc(200) == 55);
+		assertTrue(nominaly.getIlosc(100) == 1);
+		assertTrue(nominaly.getIlosc(10) == 1);
+		assertTrue(nominaly.getIlosc(1) == 1);
+		assertTrue(nominaly.getIlosc(0.10) == 1);
+		assertTrue(nominaly.getIlosc(0.01) == 1);
+	}
 }
